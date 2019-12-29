@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到我的博客，学艺不精">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Spark学习（二）概念梳理 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 学校不教的，就只能自己学了呗 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/zhemu.jpg" />
+        </div>
+        <div class="name">
+            <i>WeiJian Huang</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分区"><span class="toc-text">分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么时候分区"><span class="toc-text">什么时候分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cache缓存"><span class="toc-text">cache缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#checkpoint机制"><span class="toc-text">checkpoint机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宽依赖窄依赖"><span class="toc-text">宽依赖窄依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#广播"><span class="toc-text">广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动流程-9step"><span class="toc-text">启动流程(9step)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DStream"><span class="toc-text">DStream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#几何平均数"><span class="toc-text">几何平均数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDF用户自定义函数"><span class="toc-text">UDF用户自定义函数</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 学校不教的，就只能自己学了呗 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Spark学习（二）概念梳理
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-12-29 11:33:53</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#大数据技术" title="大数据技术">大数据技术</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>伟大领袖，天降伟人的刘老师给我们的spark概念图</p>
+<img src="/img/Spark.png" class="" width="800" height="450">
+<h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><p>Spark的分区是逻辑上的分区。执行过程中有多少个Task是由RDD分区决定的。同时运行几个Task是由分配给Executor的Core的数量决定的。</p>
+<h2 id="什么时候分区"><a href="#什么时候分区" class="headerlink" title="什么时候分区"></a>什么时候分区</h2><p>·分区数量从少到多·处理能力不够·数据倾斜·需要合并场景</p>
+<h2 id="cache缓存"><a href="#cache缓存" class="headerlink" title="cache缓存"></a>cache缓存</h2><p>持久化方法，将RDD放入内存中，减少重复计算,一共有12种<br>    例：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val MEMORY_AND_DISK = new StorageLevel(<span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="literal">true</span>)</span></pre></td></tr></table></figure><br>//第一个参数，放到磁盘<br>    //第二个参数，放到内存<br>    //第三个参数，磁盘中的数据，不是以java对象的方式保存<br>    //第四个参数，内存中的数据，以java对象的方式保存</p>
+<h2 id="checkpoint机制"><a href="#checkpoint机制" class="headerlink" title="checkpoint机制"></a>checkpoint机制</h2><p>将RDD存储在本地磁盘或者HDFS中，通过直接读取检查点目录的数据来恢复相应的RDD</p>
+<h2 id="宽依赖窄依赖"><a href="#宽依赖窄依赖" class="headerlink" title="宽依赖窄依赖"></a>宽依赖窄依赖</h2><pre><code>宽依赖：一个父RDD和一个或多个子RDD
+窄依赖：一个子RDD和一个或多个父RDD</code></pre><h2 id="广播"><a href="#广播" class="headerlink" title="广播"></a>广播</h2><p>将数据块缓存到所有节点</p>
+<h2 id="启动流程-9step"><a href="#启动流程-9step" class="headerlink" title="启动流程(9step)"></a>启动流程(9step)</h2><pre><code>1、跟Master建连接并申请资源，每个Executor需要 3g 内存，一共4 cores
+2、Master进行资源调度
+3、Master跟Worker进行rpc通信，让Worker创建Executor
+4、Worker启动Executor
+5、Executor跟Driver进行通信
+6、RDD触发Action后，会根据最后这个RDD从后往前推断依赖关系，遇到shufle就切分Stage，会递归切分，递归的出口是某个RDD没有父BDD了
+7、DAGScheduler切分完Stage后，先提交前面的Stage,执行完后在提交后面的Stage，Stage会生产Task，一个Stage 会生产很多业务逻辑相同的Task，然后将以TaskSet的形式传递给TaskScheduler
+8、 TaskScheduler将Task序列化，根据资源情况，发送Task给Executor
+9、Executor接收到Task后，先将Task反序列化，然后将Task用一个实现了Runnable接口的实现类包装起来，然后将该包装类丢入到线程池，然后包装类的run方法就会被执行，进而调用Task的计算逻辑</code></pre><h2 id="DStream"><a href="#DStream" class="headerlink" title="DStream"></a>DStream</h2><p>Dstream为每一批次的数据生成一个RDD实例，就是一个RDD序列</p>
+<h2 id="几何平均数"><a href="#几何平均数" class="headerlink" title="几何平均数"></a>几何平均数</h2><img src="/img/jihe.png" class="" width="150" height="100">
+<h2 id="UDF用户自定义函数"><a href="#UDF用户自定义函数" class="headerlink" title="UDF用户自定义函数"></a>UDF用户自定义函数</h2><p>一对一的用户定义函数，例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">spark.sql(<span class="string">"SELECT name,age,from_unixtime(create_time,'yyyy-MM-dd HH:mm:ss') FROM t_usr"</span>).show</span></pre></td></tr></table></figure>
+<p>实现用户自定义函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">spark.udf.register(<span class="string">"func_name"</span>,方法体)</span></pre></td></tr></table></figure>
+<p>多进一出UDAF（多对一）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
