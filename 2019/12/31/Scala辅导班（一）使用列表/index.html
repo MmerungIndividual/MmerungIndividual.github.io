@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,12 +21,12 @@
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
-    <script></script>
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
 
-<div class="site-nav-toggle" id="site-nav-toggle">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="site-nav-toggle" id="site-nav-toggle">
     <button>
         <span class="btn-bar"></span>
         <span class="btn-bar"></span>
@@ -140,15 +140,9 @@
     <div class="post-content no-indent">
         <p>新年快乐，2020，向前冲！<br>语言：scala 2.12</p>
 <h2 id="数组定义"><a href="#数组定义" class="headerlink" title="数组定义"></a>数组定义</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val numNames = Array(<span class="string">"num1"</span>,<span class="string">"num2"</span>,<span class="string">"num3"</span>)</span></pre></td></tr></table></figure>
-<p>数组定义的一般形式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val numNames2 = Array.apply(<span class="string">"num1"</span>,<span class="string">"num2"</span>,<span class="string">"num3"</span>)</span></pre></td></tr></table></figure>
-<p>数组定义的等价形式，使用apply方法，scala语言的本质</p>
+<p>数组定义的一般形式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val numNames2 = Array.apply(<span class="string">"num1"</span>,<span class="string">"num2"</span>,<span class="string">"num3"</span>)</span></pre></td></tr></table></figure><br>数组定义的等价形式，使用apply方法，scala语言的本质</p>
 <h2 id="列表定义"><a href="#列表定义" class="headerlink" title="列表定义"></a>列表定义</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val OneTwo = List(1,2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">val ThreeFour = List(3,4)</span></pre></td></tr></table></figure>
-<p>列表定义</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val OneTwoThreeFour = OneTwo ::: ThreeFour</span></pre></td></tr></table></figure>
-<p>列表衔接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val TwoThreeFour = 2::ThreeFour</span></pre></td></tr></table></figure>
-<p>向表头添加元素，为什么是向头部添加，因为向后添加会消耗线性时间，与其这样不如向表头添加，再通过反转，就能完成同样的功能</p>
+<p>列表定义<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val OneTwoThreeFour = OneTwo ::: ThreeFour</span></pre></td></tr></table></figure><br>列表衔接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val TwoThreeFour = 2::ThreeFour</span></pre></td></tr></table></figure><br>向表头添加元素，为什么是向头部添加，因为向后添加会消耗线性时间，与其这样不如向表头添加，再通过反转，就能完成同样的功能</p>
 <h2 id="列表常用方法"><a href="#列表常用方法" class="headerlink" title="列表常用方法"></a>列表常用方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">val thrill = <span class="string">"nil"</span>::<span class="string">"sekiro"</span>::<span class="string">"thunder"</span>::Nil</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(thrill.count(s =&gt; s.length&gt;=4))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(thrill.filter(s =&gt; s.length&gt;=4))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(thrill.forall(s =&gt; s.endsWith(<span class="string">"l"</span>)))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">thrill.foreach(s =&gt; println(s))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(thrill.mkString(<span class="string">","</span>))//返回以<span class="string">","</span>分割组成的一个列表</span></pre></td></tr></table></figure>
 <p>自己动手实践，不多讲</p>
 
@@ -196,6 +190,21 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 <script>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,12 +21,12 @@
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
-    <script></script>
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
 
-<div class="site-nav-toggle" id="site-nav-toggle">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="site-nav-toggle" id="site-nav-toggle">
     <button>
         <span class="btn-bar"></span>
         <span class="btn-bar"></span>
@@ -138,9 +138,7 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <p>拉格朗日插值法：根据数学知识可知，对于平面上已知的n个点，可以找到一个n-1次多项式，使此多项式曲线过n个点，语言：Python</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#拉格朗日插值代码</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">import pandas as pd <span class="comment">#导入数据分析库Pandas</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">from scipy.interpolate import lagrange <span class="comment">#导入拉格朗日插值函数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">inputfile = <span class="string">'../chapter4/demo/data/catering_sale.xls'</span> <span class="comment">#销量数据路径</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">outputfile = <span class="string">'../chapter4/demo/data/sales.xls'</span> <span class="comment">#输出数据路径</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">data = pd.read_excel(inputfile) <span class="comment">#读入数据</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">data[u<span class="string">'销量'</span>][(data[u<span class="string">'销量'</span>] &lt; 400) | (data[u<span class="string">'销量'</span>] &gt; 5000)] = None <span class="comment">#过滤异常值，将其变为空值</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(data.columns)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#自定义列向量插值函数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#s为列向量，n为被插值的位置，k为取前后的数据个数，默认为5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">def ployinterp_column(s, n, k=5):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  y = s[list(range(n-k, n)) + list(range(n+1, n+1+k))]<span class="comment">#取数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  y = y[y.notnull()] <span class="comment">#剔除空值,返回一个没有空值的列向量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">return</span> lagrange(y.index, list(y))(n) <span class="comment">#插值并返回插值结果</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#逐个元素判断是否需要插值</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data.columns:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> range(len(data)):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (data[i].isnull())[j]: <span class="comment">#如果为空即插值。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">      data[i][j] = ployinterp_column(data[i], j)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">data.to_excel(outputfile) <span class="comment">#输出结果，写入文件</span></span></pre></td></tr></table></figure>
-<p>langrange(x,y)(n)这个函数表示插入缺失值所在的下标n，并用插值多项式得到近似值，详情请使用文档查看，jupyter查看方法：移动光标到相应位置shift+tab。</p>
+        <p>拉格朗日插值法：根据数学知识可知，对于平面上已知的n个点，可以找到一个n-1次多项式，使此多项式曲线过n个点，语言：Python<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#拉格朗日插值代码</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">import pandas as pd <span class="comment">#导入数据分析库Pandas</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">from scipy.interpolate import lagrange <span class="comment">#导入拉格朗日插值函数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">inputfile = <span class="string">'../chapter4/demo/data/catering_sale.xls'</span> <span class="comment">#销量数据路径</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">outputfile = <span class="string">'../chapter4/demo/data/sales.xls'</span> <span class="comment">#输出数据路径</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">data = pd.read_excel(inputfile) <span class="comment">#读入数据</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">data[u<span class="string">'销量'</span>][(data[u<span class="string">'销量'</span>] &lt; 400) | (data[u<span class="string">'销量'</span>] &gt; 5000)] = None <span class="comment">#过滤异常值，将其变为空值</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(data.columns)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#自定义列向量插值函数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#s为列向量，n为被插值的位置，k为取前后的数据个数，默认为5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">def ployinterp_column(s, n, k=5):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  y = s[list(range(n-k, n)) + list(range(n+1, n+1+k))]<span class="comment">#取数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  y = y[y.notnull()] <span class="comment">#剔除空值,返回一个没有空值的列向量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">return</span> lagrange(y.index, list(y))(n) <span class="comment">#插值并返回插值结果</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#逐个元素判断是否需要插值</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data.columns:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> range(len(data)):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (data[i].isnull())[j]: <span class="comment">#如果为空即插值。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">      data[i][j] = ployinterp_column(data[i], j)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">data.to_excel(outputfile) <span class="comment">#输出结果，写入文件</span></span></pre></td></tr></table></figure><br>langrange(x,y)(n)这个函数表示插入缺失值所在的下标n，并用插值多项式得到近似值，详情请使用文档查看，jupyter查看方法：移动光标到相应位置shift+tab。</p>
 
         
         <br />
@@ -186,6 +184,21 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 <script>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,12 +21,12 @@
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
-    <script></script>
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
 
-<div class="site-nav-toggle" id="site-nav-toggle">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="site-nav-toggle" id="site-nav-toggle">
     <button>
         <span class="btn-bar"></span>
         <span class="btn-bar"></span>
@@ -138,8 +138,8 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h2 id="集和映射"><a href="#集和映射" class="headerlink" title="集和映射"></a>集和映射</h2><p>集（set）：可变集和不可变集<br>映射（Map）：可变映射和不可变映射<br>可变与不可变分别继承于scala.collection.mutable.<em>和scala.collection.immutable.</em><br>测试的完整代码如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">object mapAndSet &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  def main(args:Array[String])&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    var jetSet = Set(<span class="string">"test"</span>,<span class="string">"exam"</span>)//不可变集</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    val jetSet2 = mutable.Set(<span class="string">"tiny2"</span>,<span class="string">"nico"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    jetSet+=<span class="string">"tiny"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    jetSet2+=<span class="string">"negopa"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    println(jetSet)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    println(jetSet2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    val treasureMap = mutable.Map[Int,String]()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    treasureMap+=(1 -&gt; <span class="string">"My"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    treasureMap+=(2 -&gt; <span class="string">"Name"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    treasureMap+=(3 -&gt; <span class="string">"is"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    println(treasureMap(2))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    val rumerNum = Map(1 -&gt; <span class="string">"I"</span>,2 -&gt; <span class="string">"II"</span>,3 -&gt; <span class="string">"III"</span>,4 -&gt; <span class="string">"IV"</span>)//不可变映射</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    rumerNum.foreach(s =&gt; println(s._2))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+        <h2 id="集和映射"><a href="#集和映射" class="headerlink" title="集和映射"></a>集和映射</h2><p>集（set）：可变集和不可变集<br>映射（Map）：可变映射和不可变映射<br>可变与不可变分别继承于scala.collection.mutable.<em>和scala.collection.immutable.</em><br>测试的完整代码如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">object mapAndSet &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  def main(args:Array[String])&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    var jetSet = Set(<span class="string">"test"</span>,<span class="string">"exam"</span>)//不可变集</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    val jetSet2 = mutable.Set(<span class="string">"tiny2"</span>,<span class="string">"nico"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    jetSet+=<span class="string">"tiny"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    jetSet2+=<span class="string">"negopa"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    println(jetSet)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    println(jetSet2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    val treasureMap = mutable.Map[Int,String]()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    treasureMap+=(1 -&gt; <span class="string">"My"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    treasureMap+=(2 -&gt; <span class="string">"Name"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    treasureMap+=(3 -&gt; <span class="string">"is"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    println(treasureMap(2))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    val rumerNum = Map(1 -&gt; <span class="string">"I"</span>,2 -&gt; <span class="string">"II"</span>,3 -&gt; <span class="string">"III"</span>,4 -&gt; <span class="string">"IV"</span>)//不可变映射</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    rumerNum.foreach(s =&gt; println(s._2))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></p>
+
         
         <br />
         <div id="comment-container">
@@ -184,6 +184,21 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 <script>
